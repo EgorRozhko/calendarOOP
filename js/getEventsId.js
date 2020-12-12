@@ -1,7 +1,6 @@
 $(document).ready(function(){
 	$('body').on('click','.oneOfEvents',function(){
 		var item_id = this.id;
-		$('#map').attr("src","images/secondObla.png");
 		$.ajax({
 			url: "php/ssd.php",
 			type: "POST",
@@ -14,6 +13,7 @@ $(document).ready(function(){
 			display:'none'
 		});
 		$(".bigCalendar").remove();
+		$('.obla2').remove(); 
 	});
 
 	$('body').on('click','.obla',function(){
