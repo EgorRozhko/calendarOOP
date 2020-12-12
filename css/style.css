@@ -1,0 +1,425 @@
+*{ margin: 0px; padding: 0px; }
+body{ 
+	background-image: url('../images/fon.png'); 
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+	background-attachment: fixed;
+}
+header{
+	position: fixed;
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+	top: 0;
+	right: 0;
+	min-width: 85%;
+	background-color: rgba(0, 0, 0, .7);
+	z-index: 1001;
+}
+area{ border: 1px black solid; }
+/*****************************MAP ICONS******************************/
+#map-container{
+	height: 720px;
+	width:960px;
+	position: absolute;
+	right: 0px;
+	left:28%;
+	margin-top:5em;
+}
+.monumentStart{
+	bottom:0px; 
+	right:0px; 
+	position: relative;
+}
+#map{
+	opacity: 0.7;
+}
+
+/**************************Short Description****************************/
+#tooltip{
+	height: 100px;
+	width:300px;
+	/*z-index: 999;*/
+	background-color: rgba(0,0,0,.8);
+	position: absolute;
+	z-index: 18;
+/*	border-radius: 20px;*/
+/*	border: 2px white solid;*/
+}
+#tooltip_image{
+	height: 70px;
+	width: 100px;
+	margin-left: 15px;
+	margin-top: 15px;
+	z-index: 18;
+	/*border-radius: 20px;*/
+}
+#tooltip_text{
+	float: right;
+	text-align: left;
+	width:180px;
+	z-index: 18;
+}
+#tooltip_title{
+	color: white;
+	font-weight: bold;
+	text-align: center;
+	font-size: 1.2em;
+	z-index: 18;
+}
+#tooltip_description{
+	margin-right: .2em;
+	color: white;
+	margin-left: 15px;
+	font-size: .8em;
+	z-index: 18;
+	text-align: center;
+}
+
+/******************************SEARCH********************************/
+#show-monuments{
+	margin-right: 2em;
+	color: white;
+	cursor: pointer;
+	font-family: Courier New;
+	border: 1px white solid;
+	padding: .4em;
+	outline: none;
+	user-select: none;
+	border-radius: 1em;
+	transition: .5s;
+}
+#show-monuments:hover{
+	transition: 1s;
+	color: black;
+	background-color: white;
+}
+#searchButton{
+	color: white;
+	font-size: 1em; 
+	cursor: pointer; 
+	margin: 1em;
+	transition: .3s;
+	font-family: Courier New;
+	user-select: none;
+}
+#searchButton:hover{ 
+	color: red; 
+	transition: .3s;
+}
+header input{
+	padding: 5px;
+	border: 0px; 
+	font-family: Courier New, Helvetica, sans-serif;
+	font-size: 1em;
+	border-radius: .7em; 
+	height: 50%;
+	outline: none;
+}
+#foundEvents{
+	position: fixed;
+	background-color: rgba(0, 0, 0, .7);
+	width: 25%;
+	overflow-x: none;
+	overflow-y: scroll;
+	height: 200px;
+	top: 0;
+	right: 0;
+	z-index: 1000;
+	color: white;
+	transition: .3s;
+}
+#foundEvents p{
+	margin: 1em;
+	cursor: pointer;
+	transition: .3s;
+}
+#foundEvents p:hover{ color: red; }
+/***************************** mainMenu *****************************/
+nav{
+	background-color: rgba(0,0,0, .7);
+	max-width: 15%;
+	height: 100vh;
+	position: fixed;
+	display: flex;
+	justify-content: space-between;
+	flex-direction: column;
+	align-items: center;
+}
+nav p{
+	font-family: Courier New;
+	font-size: 2.5em;
+	color: white;
+	padding: .3em;
+	text-align: center;
+	transition: .3s;
+	cursor: pointer;
+	user-select: none;
+}
+.activeYear{ color: red; text-shadow: 0px 0px 30px rgba(255,255,255,1); }
+#blockDates p:hover{
+	transition: .3s;
+	color: red;
+}
+#mainDates{ 
+   text-shadow: 0px 0px 6px rgba(255,255,255,0.7);
+   color: white;
+   font-weight: bold;
+   font-size: 1.5em;
+   text-align: center;
+   display: block;
+   padding: .1em;
+   margin-top: 1em; 
+}
+#chooseDates{
+	font-family: Courier New;
+	color: red;
+	font-size: 1.2em;
+}
+
+/*********************Calendar************************/
+.bigCalendar{
+	color: white;
+	height: 200px;
+	overflow-y: scroll;
+	position: fixed;
+	background-color: rgba(0, 0, 0, .7);
+	z-index: 5;
+}
+.b-calendar{ margin-top: 1em; }
+.b-calendar__head{ color: white; }
+.b-calendar__number{ 
+	color: white;
+	margin: .5em;
+	cursor: pointer;
+	font-family: Courier New;
+}
+.b-calendar__day:hover{
+	background-color: grey;
+}
+.b-calendar__weekend{  
+	background-color: red; 
+	color: white; 
+	border: 1px black solid;
+	text-align: center;
+}
+.b-calendar__weekend:hover{ 
+	background-color: rgb(247, 104, 200);
+}
+.b-calendar__month{
+	font-family: Courier New;
+	text-align: center;
+	font-size: 1.5em;
+	display: block;
+	border-bottom: 1px white solid;
+}
+.currentDate{ background-color: rgb(19, 93, 240); border: 1px black solid; }
+.currentDate:hover{ background-color: rgb(93, 144, 245); }
+.addEvent{ 
+	color: white;
+	text-align: center;
+	margin-top: 2em; 
+	cursor: pointer;
+	border: 1px white solid; 
+	transition: .5s;
+	font-family: Courier New;
+	font-size: 1.1em;
+	padding: .5em;
+	margin-bottom: 1em;
+	width: 80%;
+	margin-left: auto;
+	margin-right: auto;
+}
+.addEvent:hover{
+	background-color: grey;
+	transition: .5s;
+	color: white;
+}
+/*********************EVENTS**************************/
+#listOfEvents{
+	background-color: rgba(0, 0, 0, .7);
+	position: fixed;
+	width: 300px;
+	height: 150px;
+	overflow-y: scroll;
+	z-index: 5;
+}
+.oneOfEvents{ 
+	color: white;  
+	cursor: pointer;
+	transition: .3s;
+	text-align: center;
+	padding-top: .5em;
+	padding-bottom: .5em; 
+	border-bottom: 1px white solid;
+	font-family: Courier New;
+}
+.oneOfEvents:hover{
+	transition: .3s;
+	background-color: rgba(124,124,124,.7);
+}
+.obla{ cursor: pointer; }
+.obla2{ cursor: pointer; z-index: 2; }
+.name-events{
+	position: fixed;
+	padding:0px;
+	margin:0px;
+	width:350px;
+	height: 100px;
+	font-size: 30px;
+	color: white;
+	top:30px;
+	right:0px;
+	padding: 15px; /* Поля вокруг текста */
+   /* margin: 10px; */
+	background-color: rgba(183,36,27,0.6);
+}
+.b-container{
+    width:200px;
+    height:150px;
+    background-color: #ccc;
+    margin:0px auto;
+    padding:0px;
+    font-size:30px;
+    color: #fff;
+}
+.b-popup{
+    width:100%;
+    height:100%;
+    background-color: rgba(0,0,0,0.8);
+    overflow:hidden;
+    position:fixed;
+    z-index: 9999;
+    left: 0px;
+    top:0px;
+    display: flex;
+    align-items: center;
+}
+.b-popup-content{
+    margin:0px auto 0px auto;
+    width: 50%;
+    z-index: 100;
+    height: 100%;
+    align-items: center;
+  	justify-content: center;
+}
+#articleDescription{
+	width: 50%;
+	height: 100%;
+}
+#articleDescription div{
+	display: flex;
+	height: 90%;
+	flex-direction: column;
+	justify-content: space-around;
+}
+.icon{
+	position: absolute;
+}
+.close-btn{
+	position: fixed;
+	width: 35px;
+	height: 35px;
+	right: 20px;
+	text-decoration:none;
+	z-index: 1002;
+}
+.name_ev{
+	margin-top: 2em;
+	cursor:pointer;
+	color: white;
+	text-align: center;
+	font-family: Courier New;
+	font-size: 2.5em;
+}
+#short_description{
+	color: white;
+	text-align: center;
+	width: 50%;
+	font-family: Courier New;
+	font-size: 1.2em;
+}
+#readMoreBlock{ 
+	color: white;
+	text-align: center;
+}
+.readMore{
+	transition: .3s;
+	padding: .5em;
+	border: 1px white solid;
+	cursor: pointer;
+	font-family: Courier New;
+	font-size: 1.2em;
+}
+.readMore:hover{
+	color: red;
+	border-color: red;
+}
+/*//////////////////////////////////////smooth appearance//////////////////////////////////////*/
+.b {
+	animation: anim 0.6s ease;
+}
+@keyframes anim{
+	from{
+		opacity: 0;
+	}
+	10%{
+		opacity: 0.1;
+	}
+	20%{
+		opacity: 0.2;
+	}
+	30%{
+		opacity: 0.3;
+	}
+	40%{
+		opacity: 0.4;
+	}
+	50%{
+		opacity: 0.5;
+	}
+	100%{
+		opacity: 1;
+	}
+}
+/********************Other****************************/
+#version{ color: white; }
+.close-btn{ cursor: pointer; }
+.icon_anim{ 
+	cursor: pointer;
+	width:13.8%; 
+	position: absolute; 
+	z-index: 999; 
+	right:0px; 
+	bottom:0px;  
+}
+/***************************TITLE*********************/
+.title{
+	color: #b7241b;
+	font-size: 4em;
+	font-family: Courier New;
+	display: block;
+    position: absolute;
+	width: 500px;
+	letter-spacing: 5px;
+	font-weight: bold;
+	text-align: center;
+	/*text-shadow:white 0 0 10px;*/
+	text-shadow: 0px 0px 8px rgba(255,255,255,1);
+	user-select: none;
+}
+.title p{
+	text-shadow:white 0 0 10px;
+	font-family: Courier New;
+}
+/********************Monuments On Map*****************/
+.monument{
+	width: 35px;
+	height: 35px;
+	cursor:pointer;
+	bottom:0px; 
+	right:0px; 
+	position: relative;
+	z-index: 3;
+}

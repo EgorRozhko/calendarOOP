@@ -1,0 +1,269 @@
+*{ 
+	padding: 0; 
+	margin: 0;
+}
+#content{
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	background-color: rgba(10, 10, 10, .7);
+	overflow-y: scroll;
+}
+#onMain{
+	color: white;
+	position: absolute;
+	top: .5em;
+	left: .5em;
+	font-family: Courier New;
+	font-size: 1.3em;
+	cursor: pointer;
+	transition: .3s;
+}
+#onMain:hover{
+	color: grey;
+	transition: .3s;
+}
+.articleTitle{ 
+	text-align: center;  
+	margin-top: .5em;  
+	font-size: 2em;
+	letter-spacing: .1em;
+}
+.articleParagraph{ 
+	margin-left: auto; 
+	margin-right: auto; 
+	text-align: justify; 
+	color: white; 
+	width: 80%; 
+	font-family: Courier New;
+	font-size: 1.2em;
+	text-indent: 2em;
+	margin-top: 1em;
+	line-height: 1.5em;
+}
+.articleImg{
+	height: 70%;
+	display: block;
+	margin-right: auto;
+	margin-left: auto;
+	margin-top: 1em;
+}
+.actionButton{
+	text-align: center;
+	padding-bottom: 1.5em;
+	color: white;
+	font-family: Courier New;
+	font-size: 1.2em;
+}
+.actionButton span{ transition: .2s; cursor: pointer; padding: .5em; }
+#relizeArticle{ border: 1px white solid; }
+#relizeArticle:hover{ transition: .2s; background-color: rgba(60, 60, 60, .6); }
+#removeArticle{ color: red; border: 1px red solid; }
+#removeArticle:hover{ transition: .2s; background-color: rgba(60, 60, 60, .6); }
+h2{ 
+	color: white; 
+	font-size: 2em; 
+	font-family: courier New;
+}
+body{ 
+	background-image: url('../images/fon.png'); 
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+	background-attachment: fixed;
+}
+#contentBlock{
+	width: 100%;
+	display: flex;
+	height: 100%;
+}
+#regionBlock{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	min-width: 50%;
+}
+#title{
+	font-size: 1.7em;
+	background-color: rgba(0,0,0,.7);
+	width: 100%;
+	color: white;
+	text-align: center;
+	font-family: courier new;
+}
+
+
+
+#calendarBlock{
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: center;
+	flex-direction: row;
+	min-width: 50%;
+	height: 100%;
+}
+#yearsContainer{ 
+	background-color: rgba(0,0,0,.7);
+	width: 50%; 
+	height: 100%;
+	text-align: center;
+}
+#containerCalendar{
+	display: flex;
+	width: 100%;
+}
+#years{ 
+	width: 100%; 
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+#years p{ 
+	color: white; 
+	border: 1px white solid;
+	padding: .9em;
+	margin-top: 1em;
+	cursor: pointer;
+	font-size: 1.3em;
+	width: 40%;
+	text-align: center;
+	transition: .4s;
+	font-family: Courier New;
+}
+#years p:hover{ 
+	background-color: grey;
+	transition: .4s;
+	color: black;
+}
+#calend{
+	width: 50%; 
+	height: 100%;
+	border-left: 1px white solid;
+}
+#calendar{
+	height: 50%;
+	text-align: center;
+	color: white; 
+	overflow-y: scroll;
+	background-color: rgba(0,0,0,.9);
+}
+.b-calendar{ margin-top: 1em; }
+.b-calendar__head{ color: white; }
+.b-calendar__number{ 
+	cursor: default; 
+	color: white;
+	margin: .5em;
+	font-family: Courier New;
+}
+.b-calendar__number{ 
+	color: white;
+	margin: .5em;
+	cursor: pointer;
+	font-family: Courier New;
+}
+.b-calendar__day{
+	border: 1px black solid;
+}
+.b-calendar__day:hover{
+	background-color: grey;
+}
+.b-calendar__weekend{  
+	background-color: red; 
+	color: white; 
+	border: 1px black solid;
+	text-align: center;
+	transition: .3s;
+}
+.b-calendar__weekend:hover{ 
+	background-color: rgb(247, 104, 200);
+	transition: .3s;
+}
+.b-calendar--many{ text-align: center; }
+.b-calendar__month{
+	text-align: center;
+	font-family: Courier New;
+	text-align: center;
+	font-size: 1.5em;
+	display: block;
+	border-bottom: 1px white solid;
+}
+#eventsList{
+	background-color: rgba(0,0,0,.9);
+	overflow-y: scroll;
+	color: white;
+	border-top: 2px white solid;
+	height: 50%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+#eventTitle{
+	display: flex;
+
+	margin-top: 5px;
+	font-size: 1.4em;
+	color: red;
+	padding-bottom: .5em;
+}
+.currentDate{ 
+	background-color: rgb(19, 93, 240); 
+	transition: .3s; 
+}
+.currentDate:hover{ 
+	background-color: rgb(93, 144, 245); 
+	transition: .3s; 
+}
+#list{ 
+	display: flex; 
+	flex-direction: column;
+	align-items: center;
+}
+.addEvent{ 
+	text-align: center;
+	margin-top: 2em; 
+	display: flex; 
+	align-items: center; 
+	justify-content: center;
+	cursor: pointer;
+	border: 1px white solid; 
+	transition: .5s;
+	font-family: Courier New;
+	font-size: 1.3em;
+	padding: .5em;
+	width: 50%;
+	margin-bottom: 1em;
+}
+.addEvent:hover{
+	background-color: grey;
+	transition: .5s;
+	color: black;
+}
+.warning{ margin-top: 5px; }
+.oneOfEvents{
+	transition: .4s;
+	cursor: pointer;
+	text-align: center;
+	border-top: 1px white solid;
+	border-bottom: 1px white solid;
+	padding: 1em;
+	font-family: Courier New;
+	font-size: 1.1em;
+}
+.oneOfEvents:hover{
+	transition: .4s;
+	color: black;
+	background-color: grey;
+}
+.animation{ position: absolute; }
+#bigMapContainer{ width:100%; }
+#map{ position: absolute; }
+.icon_anim{ 
+	width: 13.8%; 
+	position: absolute; 
+	right:0; 
+	bottom: 0; 
+	cursor: pointer;
+}
+.bigMap{ position: absolute; width: 100%; }
