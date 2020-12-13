@@ -12,7 +12,7 @@ $('document').ready(function(){
 		$.ajax({
 			url: "php/repeat_dates.php",
 			type: "POST",
-			data: ({i_id: item_id}),
+			data: ({i_id: $(this).attr('value') }),
 			dataType: "text",
 			success: func_success_repeat_dates
 		});
