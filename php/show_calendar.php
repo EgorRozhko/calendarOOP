@@ -39,13 +39,13 @@ function draw_calendar($month, $year, $action) {
         $day = date('Y-m-d',mktime(0,0,0,$month, $list_day, $year));
         if (array_key_exists($day, $action))
         {
-            $calendar.= '<td align="center" class="b-calendar__day b-calendar__weekend" id='.$action[$day];
+            $calendar.= '<td align="center" class="b-calendar__day b-calendar__weekend" id='.$action[$day].' value='.$day;
             $calendar .= '>';
         }
         else 
         {
-            $calendar.= '<td align="center" class="b-calendar__day';
-            $calendar .= '">';
+            $calendar.= '<td align="center" class="b-calendar__day" value='.$day;
+            $calendar .= '>';
         }
         $calendar.= '<div class="b-calendar__number">'.$list_day.'</div>';
         $calendar.= '</td>';
