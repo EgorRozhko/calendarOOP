@@ -1,5 +1,6 @@
 <?php
-	include_once "mysql/connect.php";
+	if (isset($_POST['secondInclude'])) include_once "../mysql/connect.php";
+	else include_once "mysql/connect.php";
 	$x;
 	$y;
 	$res = mysqli_query($connection,'SELECT monuments_id,coords,type_id FROM monuments');
