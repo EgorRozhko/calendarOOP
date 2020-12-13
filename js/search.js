@@ -1,8 +1,7 @@
 $('document').ready(function(){
 	$('body').on('click', '#searchButton', function(){
-		$('.bigCalendar').remove();
+		$('.bigCalendar, #foundEvents').remove();
 		$('.activeYear').removeClass('activeYear');
-		$('#foundEvents').remove();
 		$.ajax({
 			url: 'php/search.php',
 			type: 'POST',
@@ -15,22 +14,23 @@ $('document').ready(function(){
 		this.remove();
 	});
 	$('body').on('click', '.result', function(){
-		$('.monument').remove();
-		$('#map').attr("src","images/secondObla.png");
+		$('.monument, #eventTitle').remove();
+		$('body').append('<div id="eventTitle"><p>'+$(this).text()+'</p><img id="closeEvent" src="images/close.png"></div>');
+		$('#eventTitle').css('margin-top', $('header').height());
 		$.ajax({
 			url: "php/ssd.php",
 			type: "POST",
 			data: ({ i_id:this.id }),
 			dataType: "text",
-			success: successFunction
+			success: function(data){
+				$('area, .monument, .obla2, #foundEvents, .obla').remove();
+				$('#map').attr('src','images/blockedObla.png');
+				$('#map-container').append(data);
+				$('body, html').animate({ scrollTop: $('.obla').offset().top - 50 }, 1000);
+				$('.obla').addClass('b');
+			}
 		});
 	});
-	function successFunction(data){
-		$('.obla').remove();
-		$('#map-container').append(data);
-		$('.obla').addClass('b');
-		$('body, html').animate({scrollTop: $('.obla').offset().top }, 1500);
-	}
 	function success_query(data){
 		$('body').append(data);
 		$('#foundEvents').css('margin-top', $('header').height());
