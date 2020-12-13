@@ -131,20 +131,28 @@ header input{
 	transition: .3s;
 }
 #foundEvents p{
-	margin: 1em;
+	color: white;  
 	cursor: pointer;
 	transition: .3s;
+	text-align: center;
+	padding-top: .5em;
+	padding-bottom: .5em; 
+	border-bottom: 1px white solid;
+	font-family: Courier New;
 }
-#foundEvents p:hover{ color: red; }
+#foundEvents p:hover{
+	transition: .3s;
+	background-color: rgba(124,124,124,.7);
+}
 #eventTitle{
 	position: fixed;
 	padding: .5em;
 	text-align: center;
-	width: 50%;
+	width: 40%;
 	font-family: Courier New;
 	background-color: rgba(0,0,0,.7);
 	color: white;
-	margin-left: 25%;
+	margin-left: 30%;
 	border: 1px white solid;
 	display: flex;
 	flex-direction: row;
@@ -156,6 +164,7 @@ header input{
 	margin-left: 2em; 
 	height: 14px; 
 	width: 14px; 
+	cursor: pointer;
 }
 /***************************** mainMenu *****************************/
 nav{
