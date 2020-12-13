@@ -136,6 +136,27 @@ header input{
 	transition: .3s;
 }
 #foundEvents p:hover{ color: red; }
+#eventTitle{
+	position: fixed;
+	padding: .5em;
+	text-align: center;
+	width: 50%;
+	font-family: Courier New;
+	background-color: rgba(0,0,0,.7);
+	color: white;
+	margin-left: 25%;
+	border: 1px white solid;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	z-index: 1001;
+}
+#eventTitle img{ 
+	margin-left: 2em; 
+	height: 14px; 
+	width: 14px; 
+}
 /***************************** mainMenu *****************************/
 nav{
 	background-color: rgba(0,0,0, .7);
@@ -237,6 +258,13 @@ nav p{
 	color: white;
 }
 /*********************EVENTS**************************/
+#no_event{
+	color: white;
+	text-align: center;
+	padding-top: .5em;
+	padding-bottom: .5em; 
+	font-family: Courier New;
+}
 #listOfEvents{
 	background-color: rgba(0, 0, 0, .7);
 	position: fixed;
