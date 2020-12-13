@@ -1,13 +1,14 @@
 $(document).ready(function(){
 	$('body').on('click','.oneOfEvents',function(){
-		var item_id = this.id;
+		var item_id = this.id;				
+		$('body').append('<div id="eventTitle"><>'+$(this).text()+'</div>');
 		$.ajax({
 			url: "php/ssd.php",
 			type: "POST",
 			data: ({i_id: item_id}),
 			dataType: "text",
 			success: function(data){
-				$('map, .bigCalendar, .monument, .obla2').remove();
+				$('map, .bigCalendar, .monument, .obla2, #listOfEvents, .obla').remove();
 				$('.activeYear').removeClass('activeYear');
 				$('#map').attr('src','images/blockedObla.png');
 				$('#map-container').append(data);
