@@ -48,7 +48,6 @@ $(document).ready(function(){
 			success: function(data){ $('map').append(data); }
 		});
 	});
-
 	$('body').on('click','.icon_anim', function(){
 		$(location).attr('href','article.php?a='+this.id+'-f-a');
 	});
