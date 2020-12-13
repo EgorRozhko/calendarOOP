@@ -79,6 +79,7 @@ $('document').ready(function(){
 		$('#warning').html('');
 		if ($('#articleTitle').val() == '') $('#warning').html('Введите название статьи');
 		else if($('#shortDescription').val() == '') $('#warning').html('Введите краткое описание статьи');
+		else if($('#regions').val() == null) $('#warning').html('Выберите район из списка');
 		else{
 			step++;
 			checkStep(step, coords);
