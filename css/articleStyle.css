@@ -11,9 +11,8 @@
 }
 #onMain{
 	color: white;
-	position: absolute;
-	top: .5em;
-	left: .5em;
+	margin-top: 2em;
+	margin-left: 1em;
 	font-family: Courier New;
 	font-size: 1.3em;
 	cursor: pointer;
