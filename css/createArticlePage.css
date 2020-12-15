@@ -152,7 +152,7 @@ body{
 	font-family: Courier New;
 	text-align: center;
 }
-#addElement{ width: 50%; border-right: 1px white solid; height: 100%; }
+#addElement{ position: fixed; width: 50%; border-right: 1px white solid; height: 100%; }
 #addElement h2{ 
 	margin-top: 1em; 
 	color: red; 
@@ -242,6 +242,8 @@ body{
 	border-color: black;
 }
 #preView{
+	position: absolute;
+	right: 0px;
 	width: 50%;
 }
 #elementList{
