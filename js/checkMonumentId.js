@@ -14,7 +14,7 @@ $(document).ready(function(){
 				success: success_get_info
 			});
 			window.clearInterval(window.timerId);
-		},1000);
+		},500);
 	});
 	$('body').on('mouseleave','.monument',function() {
 		$('#tooltip').remove();
