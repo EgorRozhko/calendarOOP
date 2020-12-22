@@ -22,11 +22,13 @@
 				<div id="content">
 					<span id="onMain" onclick="backToMainPage()">На главную</span>'.
 				$result['full_description'];
-				if ($parameters[1] == 't') 
+				if (isset($_COOKIE['admin'])) 
 				{ 
 					if ($result['active'] == 0)	echo "<p class='actionButton'><span id='relizeArticle'>Опубликовать статью</span></p>
 						<input id='articleId' type='hidden' value=".$parameters[0].">";
-					echo "<p class='actionButton'><span id='removeArticle'>Удалить статью</span></p>";
+					echo "
+					<p class='actionButton'><span id='editArticle'>Редактировать статью</span></p>
+					<p class='actionButton'><span id='removeArticle'>Удалить статью</span></p>";
 				}
 				echo '</div>';
 				mysqli_free_result($query);
