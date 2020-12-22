@@ -11,16 +11,19 @@ $('document').ready(function(){
 	function checkStep(x, y = '')
 	{
 		$('#title').text('Создание статьи. Шаг '+x+' из 3');
-		var currentURL = window.location.href;
-		var regionId = currentURL.split('=');
-		var date = regionId[1].split('-');
 		if(x == 1)
 		{
+			var currentURL = window.location.href;
+			var regionId = currentURL.split('=');
+			var date = regionId[1].split('-');
 			$.ajax({
 			url: 'components/createArticle/step'+x+'.php',
 			type: 'POST',
 			dataType: 'text',
-			data: ({ date: date[2]+'.'+date[1]+'.'+date[0] }),  
+			data: ({ 
+				date: date[2]+'.'+date[1]+'.'+date[0],
+				originDate: date[0]+'-'+date[1]+'-'+date[2]
+			}),  
 			success: function(data){
 				$('#content').append(data);
 				$('#regions').val(date[3]);
@@ -35,7 +38,7 @@ $('document').ready(function(){
 				dataType: 'text',
 				data: ({ 
 					title: $('#articleTitle').val(), 
-					date: $('#showDate').text(), 
+					date: $('#date').val(), 
 					region: $('.regionItem').val(), 
 					regionId: $('#regions').find('option:selected').data('region-id'), 
 					step: x,

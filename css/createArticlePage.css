@@ -172,6 +172,7 @@ body{
 	padding: .5em;
 	margin-top: .5em;
 	transition: .3s;
+	font-family: Courier New;
 }
 #elementSet p:hover{
 	transition: .3s;

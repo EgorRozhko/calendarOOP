@@ -26,10 +26,10 @@ $page =
 		<img id="map" src='.$row['region_BigMap'].'>
 		<button class="nextStep nstp2">Следующий шаг</button>
 	</div>
-	<input type="hidden" id="shortDescription" value='.$shortDescription.'>
-	<input type="hidden" id="articleTitle" value='.$articleTitle.'>
-	<input type="hidden" id="showDate" value='.$_POST['date'].'>
-	<input type="hidden" id="region" value='.$_POST['regionId'].' >
+	<input type="hidden" id="shortDescription" value="'.$shortDescription.'">
+	<input type="hidden" id="articleTitle" value="'.$articleTitle.'">
+	<input type="hidden" id="showDate" value="'.$_POST['date'].'">
+	<input type="hidden" id="region" value="'.$_POST['regionId'].'" >
 	</div>
 	<script src="../../js/positions.js"></script>
 	';

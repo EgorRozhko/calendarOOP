@@ -21,12 +21,12 @@
 			</div>
 		</div>
 		<input id="filename" type="hidden">
-		<input id="shortDescription" type="hidden" value='.$_POST['shortDescription'].'>
-		<input id="artTitle" type="hidden" value='.$_POST['title'].'>
-		<input id="date" type="hidden" value='.$_POST['date'].'>
-		<input id="regionId" type="hidden" value='.$_POST['regionId'].'>
-		<input id="imageIcon" type="hidden" value='.$_POST['imageIcon'].'>
-		<input id="coords" type="hidden" value='.$_POST['coords'].'>
+		<input id="shortDescription" type="hidden" value="'.$_POST['shortDescription'].'">
+		<input id="artTitle" type="hidden" value="'.$_POST['title'].'">
+		<input id="date" type="hidden" value="'.$_POST['date'].'">
+		<input id="regionId" type="hidden" value="'.$_POST['regionId'].'">
+		<input id="imageIcon" type="hidden" value="'.$_POST['imageIcon'].'">
+		<input id="coords" type="hidden" value="'.$_POST['coords'].'">
 		<input id="currentElement" type="hidden">
 	</div>';
 		echo $page;

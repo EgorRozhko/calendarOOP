@@ -22,6 +22,7 @@
 				</div>
 				<button id="nextStep1" class="nextStep">Следующий шаг</button>
 				<p id="warning"></p>
-			</div>';
+			</div>
+			<input type="hidden" id="date" value="'.$_POST['originDate'].'">';
 		echo $page;
 ?>
