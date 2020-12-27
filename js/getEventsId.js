@@ -1,6 +1,7 @@
 $(document).ready(function(){
 	$('body').on('click','.oneOfEvents',function(){
 		var item_id = this.id;				
+		$('#eventTitle').remove();
 		$('body').append('<div id="eventTitle"><p>'+$(this).text()+'</p><img id="closeEvent" src="images/close.png"></div>');
 		$('#eventTitle').css('margin-top', $('header').height());
 		$.ajax({

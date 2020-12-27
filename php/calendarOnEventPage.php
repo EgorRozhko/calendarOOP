@@ -110,21 +110,16 @@ function draw_calendar($month, $year, $action) {
         $month=1;
     }
     else $lastMonth =12;
-    
-    if (mysqli_num_rows($res) != 0)
-    {
         echo "<div class='bigCalendar'>";
         for ($month; $month <= $lastMonth; $month++) 
         { 
-            echo'
-                <div class="b-calendar b-calendar--many">
-                    <div class="b-calendar__title">
-                        <span class="b-calendar__month">'.$months[$month-1].'</span>
-                    </div>'
-                   .draw_calendar($month,$_POST['year'],$my_array).
-                '</div>';
+        echo'
+            <div class="b-calendar b-calendar--many">
+                <div class="b-calendar__title">
+                    <span class="b-calendar__month">'.$months[$month-1].'</span>
+                </div>'
+                .draw_calendar($month,$_POST['year'],$my_array).
+            '</div>';
         }
-    }
-    else echo "<p class='warning'>В данном году нет событий в этом районе</p>";
    mysqli_close($connection);
 ?>

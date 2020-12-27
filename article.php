@@ -24,9 +24,9 @@
 				$result['full_description'];
 				if (isset($_COOKIE['admin'])) 
 				{ 
-					if ($result['active'] == 0)	echo "<p class='actionButton'><span id='relizeArticle'>Опубликовать статью</span></p>
-						<input id='articleId' type='hidden' value=".$parameters[0].">";
+					if ($result['active'] == 0)	echo "<p class='actionButton'><span id='relizeArticle'>Опубликовать статью</span></p>";
 					echo "
+					<input id='articleId' type='hidden' value=".$parameters[0].">
 					<p class='actionButton'><span id='editArticle'>Редактировать статью</span></p>
 					<p class='actionButton'><span id='removeArticle'>Удалить статью</span></p>";
 				}

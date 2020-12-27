@@ -2,6 +2,8 @@ $('document').ready(function(){
 	var currentURL = window.location.href;
 	var regionId = currentURL.split('=');
 	$('p').on('click',function(){
+		$('.currentYear').removeClass('currentYear');
+		$(this).addClass('currentYear');
 		$.ajax({
 			url: 'php/calendarOnEventPage.php',
 			type: 'POST',

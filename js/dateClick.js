@@ -15,6 +15,7 @@ $('document').ready(function(){
 		});
 	});
 	$('body').on('click','.oneOfEvents',function(){
+		$('.icon_anim').remove();
 		$.ajax({
 			url: "php/showEvent.php",
 			type: "POST",

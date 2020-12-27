@@ -44,6 +44,13 @@ $('document').ready(function(){
 			}
 		});
 	});
+	$('body').on('click', '#editArticle', function(){
+		$.ajax({
+			success: function(data){
+				$(location).attr('href','editArticlePage.php?id='+$('#articleId').val());
+			}
+		});
+	});
 	$('body').on('click', '#relizeArticle', function(){
 		$.ajax({
 			url: 'php/relizeArticle.php',
