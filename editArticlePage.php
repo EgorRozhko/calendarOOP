@@ -11,6 +11,7 @@
 				include_once 'mysql/connect.php';
 				$query = mysqli_query($connection, 'SELECT full_description FROM events WHERE events_id ='.$_GET['id']);
 				$page = '
+		<input id="a_id" type="hidden" value="'.$_GET['id'].'">
 		<div id="background">
 			<div id="main">
 				<div id="addElement">

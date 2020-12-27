@@ -17,7 +17,9 @@
 				</div>
 			</div>
 			<div id="preView">
-				<div id="elementList"></div>
+				<div id="elementList">
+					<h2>'.$_POST['title'].'</h2>
+				</div>
 			</div>
 		</div>
 		<input id="filename" type="hidden">

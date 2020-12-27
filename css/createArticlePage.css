@@ -279,7 +279,7 @@ body{
 	line-height: 1.5em;
 }
 .articleImg{
-	height: 70%;
+	width: 50%;
 	display: block;
 	margin-right: auto;
 	margin-left: auto;

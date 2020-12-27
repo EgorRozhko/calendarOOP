@@ -161,110 +161,28 @@ $('document').ready(function(){
 			}
 		});
 	});
+
+
 	$('body').on('click', '#addParagraphButton', function(){
-		if (firstElement === false) {
-			filename = new Date();
-			filename = filename.getTime()+'.html';
-			$('#filename').attr('value',filename);
-			let element = '<p class="articleElement articleParagraph" id="paragraph'+elementId+'">'+$('#textareaParagraph').val()+'</p>';
-			elementId ++;
-			firstElement = true;
-			$.ajax({
-				url: 'php/articleFile.php',
-				type: 'POST',
-				dataType: 'text',
-				data: ({ 
-					element: element,
-					articleFileName: filename,
-					title: $('#artTitle').val()
-				}),
-				success: function(data){
-					$('#elementSetting').empty();
-					$('#elementList').empty();
-					$('#elementList').append(data);
-					checkElementList();
-				}
-			});
-		}
-		else{
-			filename = $('#filename').attr('value');
-			let element = '<p class="articleElement articleParagraph" id="paragraph'+elementId+'">'+$('#textareaParagraph').val()+'</p>';
-			elementId ++;
-			$.ajax({
-				url: 'php/articleFile.php',
-				type: 'POST',
-				dataType: 'text',
-				data: ({ 
-					element: element,
-					title: $('#artTitle').val(),
-					articleFileName: filename 
-				}),
-				success: function(data){
-					$('#elementSetting').empty();
-					$('#elementList').empty();
-					$('#elementList').append(data);
-					checkElementList();
-				}
-			});
-		}
-		$('#addParagraph').remove();
+			elementId++;
+			$('#elementList').append('<p class="articleElement articleParagraph" id="paragraph'+elementId+'">'+$('#textareaParagraph').val()+'</p>');
+			$('#elementSetting').empty();
+			$('#addParagraph').remove();
+			checkElementList()
 	});
 	$('body').on('click', '#addImgInArticle', function(){
 		$('#addImgInArticle').css('visibility','visible');
-		if ($('#hiddenframe').contents().find('input').val() == 'success') {
+		if ($('#hiddenframe').contents().find('input').val() == 'success') 
+		{
 			$('#warning').css('color','#23a300');
 			$('#warning').html('Изображение было добавлено в статью');
-			if (firstElement === false) {
-				let arr = $('#hiddenframe').contents().find('img').attr('src').split('../../');
-				let source = '../'+arr[1];
-				filename = new Date();
-				filename = filename.getTime()+'.html';
-				$('#filename').attr('value',filename);
-				let element = '<img class="articleImg articleElement" id="image'+elementId+'" src='+source+'>';
-				elementId ++;
-				firstElement = true;
-				$.ajax({
-					url: 'php/articleFile.php',
-					type: 'POST',
-					dataType: 'text',
-					data: ({ 
-						element: element,
-						title: $('#artTitle').val(),
-						articleFileName: filename 
-					}),
-					success: function(data){
-						$('#elementSetting').empty();
-						$('#elementList').empty();
-						$('#elementList').append(data);
-						$('.addElement').remove();
-						checkElementList();
-					}
-				});
-			}
-			else{
-				let arr = $('#hiddenframe').contents().find('img').attr('src').split('../../');
-				let source = '../'+arr[1];
-				filename = $('#filename').attr('value');
-				let element = '<img class="articleImg articleElement" id="image'+elementId+'" src='+source+'>';
-				elementId ++;
-				$.ajax({
-					url: 'php/articleFile.php',
-					type: 'POST',
-					dataType: 'text',
-					data: ({ 
-						element: element,
-						title: $('#artTitle').val(),
-						articleFileName: filename 
-					}),
-					success: function(data){
-						$('#elementSetting').empty();
-						$('#elementList').empty();
-						$('#elementList').append(data);
-						$('.addElement').remove();
-						checkElementList();
-					}
-				});
-			}
+			elementId ++;
+			let arr = $('#hiddenframe').contents().find('img').attr('src').split('../../');
+			let source = '../'+arr[1];
+			$('#elementList').append('<img class="articleImg articleElement" id="image'+elementId+'" src='+source+'>');
+			$('#elementSetting').empty();
+			$('.addElement').remove();
+			checkElementList()
 		}
 		else{
 			$('#warning').css('color','red');
@@ -274,57 +192,19 @@ $('document').ready(function(){
 	});
 	$('body').on('click', '#internetImageAdd', function(){
 		if ($('#imageUrl').val() == '') $('#warning2').html('Пустое поле');
-		else{
-			if (firstElement === false) {
-				filename = new Date();
-				filename = filename.getTime()+'.html';
-				$('#filename').attr('value',filename);
-				let element = '<img class="articleImg articleElement" id="'+elementId+'" src='+$('#imageUrl').val()+'><br>';
-				elementId ++;
-				firstElement = true;
-				$.ajax({
-					url: 'php/articleFile.php',
-					type: 'POST',
-					dataType: 'text',
-					data: ({ 
-						element: element,
-						title: $('#artTitle').val(),
-						articleFileName: filename 
-					}),
-					success: function(data){
-						$('#elementSetting').empty();
-						$('#imageUrl').val() == '';
-						$('#elementList').empty();
-						$('#elementList').append(data);
-						$('.addElement').remove();
-						checkElementList();
-					}
-				});
-			}
-			else{
-				filename = $('#filename').attr('value');
-				let element = '<img class="articleImg articleElement" id="'+elementId+'" src='+$('#imageUrl').val()+'><br>';
-				elementId ++;
-				$.ajax({
-					url: 'php/articleFile.php',
-					type: 'POST',
-					dataType: 'text',
-					data: ({ 
-						element: element,
-						articleFileName: filename 
-					}),
-					success: function(data){
-						$('#elementSetting').empty();
-						$('#imageUrl').val() == '';
-						$('#elementList').empty();
-						$('#elementList').append(data);
-						$('.addElement').remove();
-						checkElementList();
-					}
-				});
-			}
+		else
+		{
+			elementId ++;
+			$('#elementList').append('<img class="articleImg articleElement" id="image'+elementId+'" src='+$('#imageUrl').val()+'><br>');
+			$('#elementSetting').empty();
+			$('#imageUrl').val() == '';
+			$('.addElement').remove();
+			checkElementList()
 		}
 	});
+
+
+	//РЕДАКТИРОВАНИЕ ЭЛЕМЕНТОВ
 	$('body').on('click', '.articleElement', function(){
 		currentEl = this.id;
 		$('#elementSetting').empty();
@@ -340,107 +220,48 @@ $('document').ready(function(){
 			}
 		});
 	});
+
 	$('body').on('click', '#saveEditP', function(){
 		$('#'+currentEl).html($('#editTextArea').val());
-		$.ajax({
-			url: 'php/updateArticle.php',
-			type: 'POST',
-			dataType: 'text',
-			data: ({ 
-				articleText: $('#elementList').html(),
-				file: $('#filename').val() 
-			}),
-			success: function(data){
-				$('#elementSetting').empty();
-				$('.editElement').remove();
-				$('#elementList').empty();
-				$('#elementList').append(data);
-				checkElementList();
-			}
-		});
+		$('#elementSetting').empty();
+		$('.editElement').remove();
+		checkElementList()
 	});
+
 	$('body').on('click', '#removeP', function(){
 		$('#'+currentEl).remove();
-		$.ajax({
-			url: 'php/updateArticle.php',
-			type: 'POST',
-			dataType: 'text',
-			data: ({ 
-				articleText: $('#elementList').html(),
-				file: $('#filename').val() 
-			}),
-			success: function(data){
-				$('#elementSetting').empty();
-				$('#elementList').empty();
-				$('#elementList').append(data);
-				checkElementList();
-			}
-		});
+		$('#elementSetting').empty();
+		checkElementList()
 	});
+	
 	$('body').on('click', '#editImg', function(){
 		if($('#imageUrl').val() == "") $('#warning2').text('Введите адрес изображения');
-		else{
+		else
+		{
 			$('#'+currentEl).attr('src', $('#imageUrl').val());
-			$.ajax({
-			url: 'php/updateArticle.php',
-			type: 'POST',
-			dataType: 'text',
-			data: ({ 
-				articleText: $('#elementList').html(),
-				file: $('#filename').val() 
-			}),
-			success: function(data){
-				$('#imageUrl').val() == '';
-				$('.editElement').remove();
-				$('#elementList').empty();
-				$('#elementList').append(data);
-				$('#elementSetting').empty();
-				checkElementList();
-			}
-		});
+			$('#imageUrl').val() == '';
+			$('.editElement').remove();
+			$('#elementSetting').empty();
+			checkElementList()
 		}
 	});
+	
 	$('body').on('click', '#editImgInArticle', function(){
 		let arr = $('#hiddenframe').contents().find('img').attr('src').split('../../');
 		let source = '../'+arr[1];
 		let element = '<img class="articleImg articleElement" id="image'+elementId+'" src='+source+'>';
 		$('#'+currentEl).attr('src', source);
-		$.ajax({
-		url: 'php/updateArticle.php',
-		type: 'POST',
-		dataType: 'text',
-		data: ({ 
-			articleText: $('#elementList').html(),
-			file: $('#filename').val() 
-		}),
-		success: function(data){
-			$('#elementSetting').empty();
-			$('.editElement').remove();
-			$('#elementList').empty();
-			$('#elementList').append(data);
-			checkElementList();
-			}
-		});
+		$('#elementSetting').empty();
+		$('.editElement').remove();
+		checkElementList()
 	});
 	$('body').on('click', '#removeImg', function(){
 		$('#'+currentEl).remove();
-		$.ajax({
-			url: 'php/updateArticle.php',
-			type: 'POST',
-			dataType: 'text',
-			data: ({ 
-				articleText: $('#elementList').html(),
-				file: $('#filename').val() 
-			}),
-			success: function(data){
-				$('.editElement').remove();
-				$('#elementList').empty();
-				$('#elementList').append(data);
-				$('#elementSetting').empty();
-				checkElementList();
-			}
-		});
+		$('.editElement').remove();
+		$('#elementSetting').empty();
+		checkElementList()
 	});
+	
 	$('body').on('click', '#saveArticle', function(){
 		if ($('#elementList').text() == '') alert('Нельзя сохранить пустую статью');
 		else{

@@ -1,6 +1,7 @@
 <?php
-	$file = fopen('../articles/'.$_POST['file'], 'w+');
-	fwrite($file, trim($_POST['articleText']));
-	echo file_get_contents('../articles/'.$_POST['file']);
-	fclose($file);
+	include_once '../mysql/connect.php';
+	$splitDate = explode('-', $_POST['date']);
+	$query = mysqli_query($connection, "UPDATE events SET full_description = '".$_POST['content']."' WHERE events_id=".$_POST['articleId']);
+	if ($query) echo 'true';
+	else echo mysqli_error();
 ?>
