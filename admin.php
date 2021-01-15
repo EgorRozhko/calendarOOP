@@ -12,10 +12,13 @@
 				$result = mysqli_fetch_array($query);
 				mysqli_close($connection);
 				echo "
-					<h2 id='newArticles'>Новых статей (".$result['count(title)'].")</h2>
-					<div id='eventsList'></div>";
+					<div class='content'>
+					<h2 id='onMain'><a href='index.php'>На главную</a></h2>
+						<h2 id='newArticles'>Новых статей (".$result['count(title)'].")</h2>
+						<div id='eventsList'></div>
+					</div>";
 			}
-			else echo  "<div id='content'><h1>Авторизация</h1><div id='form'><input type='password' id ='password' placeholder='Введите пароль'><br/><p id='enter'>ВОЙТИ</p><p id='warning'></p></div></div>";
+			else echo  "<div class='content'><h1>Авторизация</h1><div id='form'><input type='password' id ='password' placeholder='Введите пароль'><br/><p id='enter'>ВОЙТИ</p><p id='warning'></p></div></div>";
 		}
 		function jsFiles(){ 
 			echo "

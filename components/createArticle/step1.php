@@ -20,7 +20,8 @@
 					</select>
 				</div>
 				</div>
-				<button id="nextStep1" class="nextStep">Следующий шаг</button>
+				<button id="nextStep1" class="nextStep">Следующий шаг</button><br><br>
+				<button id="onMain"><a href="index.php">На главную</a></button>
 				<p id="warning"></p>
 			</div>
 			<input type="hidden" id="date" value="'.$_POST['originDate'].'">';

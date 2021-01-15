@@ -146,7 +146,7 @@ $('document').ready(function(){
 					articleId: $('#a_id').val()
 				}),
 				success: function(data){
-					if(data === 'true') location.reload();
+					if(data === 'true') window.location.href = 'admin.php';
 					else alert(data);
 				}
 			});

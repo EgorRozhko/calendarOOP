@@ -66,6 +66,7 @@ h2{
 	color: white; 
 	font-size: 2em; 
 	font-family: courier New;
+	text-align: center;
 }
 body{ 
 	background-image: url('../images/fon.png'); 

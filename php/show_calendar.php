@@ -1,6 +1,6 @@
 <?php
     include_once ('../mysql/connect.php');
-    $res = mysqli_query($connection, 'SELECT events_id, date_event,Month(date_event) FROM events WHERE Year(date_event)='.$_POST['year']);
+    $res = mysqli_query($connection, 'SELECT events_id, date_event,Month(date_event) FROM events WHERE Year(date_event)='.$_POST['year'].' AND active = 1');
     $my_array = array();
     while($row = mysqli_fetch_array($res)) $my_array[$row['date_event']] = $row['events_id'];
 

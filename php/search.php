@@ -2,7 +2,7 @@
 	$search_text = $_POST['searchText'];
 	$search_text = trim($search_text);
 	$search_text = htmlspecialchars($search_text);
-	$search_string = 'SELECT events.events_id,events.title,place_id,map_image,coords FROM places INNER JOIN events ON events.place_id = places.id_place WHERE events.short_description LIKE "%'.$search_text.'%"';
+	$search_string = 'SELECT events.events_id,events.title,place_id,map_image,coords FROM places INNER JOIN events ON events.place_id = places.id_place WHERE events.short_description LIKE "%'.$search_text.'%" AND active = 1';
 	if (!empty($search_text))
 	{
 		if (strlen($search_text)>128) echo 'Слишком длинный запрос';

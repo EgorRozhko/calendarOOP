@@ -81,6 +81,22 @@ body{
 	background-color: rgba(125,125,125,.4);
 	transition: .3s;
 }
+a{ color: white;  text-decoration: none; }
+#onMain{
+	font-family: Courier New;
+	font-size: 1.3em;
+	padding: .3em;
+	background-color: transparent;
+	color: white;
+	border: 1px white solid;
+	cursor: pointer;
+	transition: .3s;
+	text-decoration: none;
+}
+#onMain:hover{
+	background-color: rgba(125,125,125,.4);
+	transition: .3s;
+}
 #warning{
 	color: red;
 	margin-top: 1em;
